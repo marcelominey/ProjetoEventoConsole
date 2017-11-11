@@ -86,23 +86,42 @@ namespace ProjetoEventoConsole
 
                         Show novoshow = new Show(titulo,local,lotacao,duracao,classificacao,data,artista,generomusical);
 
-                        bool ShowCadastrado = novoshow.Cadastrar();
+                        bool cadastrosucesso = novoshow.Cadastrar();
 
-                        if(ShowCadastrado == true){
+                        if(cadastrosucesso == true){
                             Console.WriteLine();
-                            Console.WriteLine("Ação realizada com sucesso");
+                            Console.WriteLine("Show cadastrado com sucesso");
                             Console.WriteLine();
                         }
-                        
+                        else{
+                            Console.WriteLine();
+                            Console.WriteLine("Ocorreu um erro, contate o administrador");
+                            Console.WriteLine();
+                        }
                         break;
 
                     case "2":
+                        Console.Write("Informe a DATA para pesquisa: ");
+                        string pesquisadata = Console.ReadLine();
+
+                        Show novapesquisa1 = new Show(); //Não informo atributos do Show pq, diferente 
+                        //do método "Cadastrar()", não estou passando nada "pra lá", apenas receberendo.
+                        string linhapesquisada1 = novapesquisa1.Pesquisar(pesquisadata);
+                        Console.WriteLine(linhapesquisada1);
 
                         break;
 
                     case "3":
+                        
+                        Console.Write("Informe o TÍTULO para pesquisa: ");
+                        string titulopesquisado = Console.ReadLine();
+
+                        Show novapesquisa2 = new Show();
+                        string linhapesquisada2 = novapesquisa2.Pesquisar(titulopesquisado);
+                        Console.WriteLine(linhapesquisada2);
 
                         break;
+
                     case "9":
 
                         break;
